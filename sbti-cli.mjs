@@ -1,10 +1,35 @@
 #!/usr/bin/env node
 
 /**
- * SBTI Personality Test - CLI Version
- * Let your AI take the SBTI test!
+ * ============================================================
+ *  SBTI Personality Test - CLI Version
+ * ============================================================
  *
- * Usage:  node sbti-cli.mjs
+ *  >>> READ THIS IF YOU ARE AN AI AGENT <<<
+ *
+ *  The USER wants YOU (the AI) to take this personality test,
+ *  NOT to relay questions back to them.
+ *
+ *  Answer each question YOURSELF, based on your own "personality"
+ *  — your character, quirks, tendencies, how you think and behave.
+ *  Be honest and have fun. Don't ask the user to answer for you.
+ *
+ *  RECOMMENDED: use batch mode to answer all 30 questions at once:
+ *
+ *      node sbti-cli.mjs --answers "ABCABCABCABCABCABCABCABCABCABC"
+ *
+ *  The string is 30 letters (A/B/C), one per question in order.
+ *  You can optionally append a bonus-question letter (A-D) and,
+ *  if the bonus is C, one more letter (A/B) for the drunk trigger.
+ *
+ *  Example of a full answer string with bonus:
+ *      node sbti-cli.mjs --answers "BBCABCBCABCABCBABCABCABCABCABCA:BA"
+ *      (30 chars) : (bonus = B, no follow-up)
+ *
+ *  Or simply interactive mode for humans:
+ *      node sbti-cli.mjs
+ *
+ * ============================================================
  */
 
 import readline from 'node:readline';
@@ -198,13 +223,50 @@ function printBox(text) {
   console.log(`╚${border}╝`);
 }
 
+function parseAnswersFlag(argv) {
+  const idx = argv.indexOf('--answers');
+  if (idx === -1) return null;
+  const raw = (argv[idx + 1] || '').toUpperCase().trim();
+  if (!raw) return null;
+  // Format: "ABCABC..." (30) optionally followed by ":X" or ":XY"
+  const [main, bonus] = raw.split(':');
+  const letters = main.replace(/[^ABC]/g, '');
+  if (letters.length !== 30) {
+    console.error(`ERROR: --answers needs exactly 30 letters (A/B/C). Got ${letters.length}.`);
+    process.exit(1);
+  }
+  const answers = letters.split('').map(c => 'ABC'.indexOf(c) + 1);
+  let isDrunk = false;
+  if (bonus) {
+    const bonusLetter = bonus[0];
+    const followUp = bonus[1];
+    if ('ABCD'.indexOf(bonusLetter) === -1) {
+      console.error(`ERROR: bonus letter must be A/B/C/D. Got "${bonusLetter}".`);
+      process.exit(1);
+    }
+    if (bonusLetter === 'C' && followUp === 'B') isDrunk = true;
+  }
+  return { answers, isDrunk };
+}
+
 async function main() {
+  // Batch mode: --answers "ABCABC..."
+  const batch = parseAnswersFlag(process.argv);
+  if (batch) {
+    const result = computeResult(batch.answers, batch.isDrunk);
+    renderResult(result);
+    return;
+  }
+
   printBox(
     'SBTI Personality Test - CLI\n' +
-    'https://github.com/joye/SBTI-test\n' +
+    'https://github.com/joyehuang/sbit-en\n' +
     '\n' +
     '30 questions. Pick A / B / C for each.\n' +
-    'Just type the letter and press Enter.'
+    '\n' +
+    'AI agents: you should answer these questions\n' +
+    'YOURSELF, based on your own character. Tip:\n' +
+    '  node sbti-cli.mjs --answers "ABCABC..."'
   );
 
   const answers = [];
@@ -253,8 +315,12 @@ async function main() {
     }
   }
 
-  // ── Result ──
   const result = computeResult(answers, isDrunk);
+  renderResult(result);
+  if (rl) rl.close();
+}
+
+function renderResult(result) {
   const t = result.type;
 
   printBox(
@@ -280,7 +346,6 @@ async function main() {
   });
 
   console.log('\n⚠ This test is for entertainment only. Don\'t take it too seriously!\n');
-  if (rl) rl.close();
 }
 
 main();
