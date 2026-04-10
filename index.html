@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SBTI 人格测试</title>
+  <title>SBTI Personality Test</title>
   <style>
     :root {
       --bg: #f6faf6;
@@ -21,7 +21,7 @@
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top left, #f8fff8 0, #f6faf6 36%, #f2f7f3 100%);
       color: var(--text);
@@ -629,7 +629,7 @@
     }
     .author-box summary::-webkit-details-marker { display: none; }
     .author-box summary::after {
-      content: '展开';
+      content: 'Expand';
       font-size: 12px;
       font-weight: 700;
       color: var(--accent-strong);
@@ -640,7 +640,7 @@
       flex-shrink: 0;
     }
     .author-box[open] summary::after {
-      content: '收起';
+      content: 'Collapse';
     }
     .author-content {
       border-top: 1px solid var(--line);
@@ -687,20 +687,25 @@
   <div class="shell">
     <section id="intro" class="screen active">
       <div class="hero card hero-minimal">
-        <h1>MBTI已经过时，SBTI来了。</h1>
+        <h1>MBTI is outdated. SBTI is here.</h1>
         <div class="hero-actions hero-actions-single">
-          <button id="startBtn" class="btn-primary">开始测试</button>
+          <button id="startBtn" class="btn-primary">Start Test</button>
         </div>
-        <div style="padding-top: 2rem; display: flex; flex-direction: column;">
+        <div style="padding-top: 2rem; display: flex; flex-direction: column; gap: 4px;">
           <span>
-            原作者：
-            <a href="https://space.bilibili.com/417038183">B站@蛆肉儿串儿</a>
+            Original creator:
+            <a href="https://space.bilibili.com/417038183">Bilibili @蛆肉儿串儿</a>
           </span>
           <span>
-            托管：Cloudflare (免费)
+            Translated by:
+            <a href="https://joyehuang.me">joyehuang</a> ·
+            <a href="https://x.com/deshiou0604">@deshiou0604</a>
           </span>
           <span>
-            域名：Spaceship (自费)
+            Hosted on: Cloudflare (Free)
+          </span>
+          <span>
+            Domain: Spaceship (Self-funded)
           </span>
         </div>
       </div>
@@ -716,10 +721,10 @@
         <div id="questionList" class="question-list"></div>
 
         <div class="actions-bottom">
-          <div class="hint" id="testHint">全选完才会放行。世界已经够乱了，起码把题做完整。</div>
+          <div class="hint" id="testHint">Answer all questions to proceed. The world is chaotic enough — at least finish the test.</div>
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <button id="backIntroBtn" class="btn-secondary">返回首页</button>
-            <button id="submitBtn" class="btn-primary" disabled>提交并查看结果</button>
+            <button id="backIntroBtn" class="btn-secondary">Back to Home</button>
+            <button id="submitBtn" class="btn-primary" disabled>Submit & View Results</button>
           </div>
         </div>
       </div>
@@ -731,48 +736,48 @@
         <div class="result-layout">
           <div class="result-top">
             <div class="poster-box" id="posterBox">
-              <img id="posterImage" class="poster-image" alt="人格结果图" />
-              <div id="posterCaption" class="poster-caption">怎么样，被我拿捏了吧？</div>
+              <img id="posterImage" class="poster-image" alt="Personality Result" />
+              <div id="posterCaption" class="poster-caption">Got you figured out, didn't I?</div>
             </div>
 
             <div class="type-box">
-              <div class="type-kicker" id="resultModeKicker">你的主类型</div>
-              <div class="type-name" id="resultTypeName">CTRL（拿捏者）</div>
-              <div class="match" id="matchBadge">匹配度 92%</div>
-              <div class="type-subname" id="resultTypeSub">系统备注会显示在这里。</div>
+              <div class="type-kicker" id="resultModeKicker">Your Primary Type</div>
+              <div class="type-name" id="resultTypeName">CTRL (The Controller)</div>
+              <div class="match" id="matchBadge">Match 92%</div>
+              <div class="type-subname" id="resultTypeSub">System notes will appear here.</div>
             </div>
           </div>
 
           <div class="analysis-box">
-            <h3>该人格的简单解读</h3>
+            <h3>Personality Analysis</h3>
             <p id="resultDesc"></p>
           </div>
 
           <div class="dim-box">
-            <h3>十五维度评分</h3>
+            <h3>15-Dimension Scores</h3>
             <div id="dimList" class="dim-list"></div>
           </div>
 
           <div class="note-box">
-            <h3>友情提示</h3>
-            <p id="funNote">本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。</p>
+            <h3>Friendly Reminder</h3>
+            <p id="funNote">This test is for entertainment only. Don't use it for diagnosis, job interviews, dating, breakups, séances, fortune-telling, or life sentences.</p>
           </div>
 
                     <details class="author-box">
-            <summary>作者的话</summary>
+            <summary>A Word from the Creator</summary>
             <div class="author-content">
-              <p>本测试首发于b站up主蛆肉儿串儿（UID417038183），初衷是劝诫一位爱喝酒的朋友戒酒。</p>
-              <p>由于作者的人格是SHIT愤世者，所以平等的攻击了各位，在此抱歉！！不过我是一个绝世大美女，你们一定会原谅我，有B站的朋友们也可以关注我。</p>
-              <p>关于这个测试，我没法很好的平衡娱乐和专业性，因此对于一些人格的阐释较为模糊或完全不准（如屌丝可能并非真的屌丝），如有冒犯非常抱歉！！</p>
-              <p>再鉴于时间精力有限，就随便搞了一个先这样玩玩，后续会慢慢完善修改的，总之好玩为主，还请不要用于盈利呀。</p>
+              <p>This test was originally created by Bilibili creator 蛆肉儿串儿 (UID417038183), initially to persuade a friend who loves drinking to quit alcohol.</p>
+              <p>Since the creator's personality type is SHIT (The Rager), everyone got roasted equally — sorry about that!! But she's an absolute beauty, so you'll definitely forgive her. Feel free to follow her on Bilibili.</p>
+              <p>Regarding this test, it's hard to balance entertainment and professionalism, so some personality descriptions may be vague or completely inaccurate (e.g., "Loser" doesn't necessarily mean you're actually a loser). Apologies if any offense was caused!!</p>
+              <p>Given limited time and energy, this was thrown together for fun first. It will be gradually improved. Please don't use it for profit.</p>
             </div>
           </details>
         </div>
 
         <div class="result-actions">
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <button id="restartBtn" class="btn-secondary">重新测试</button>
-            <button id="toTopBtn" class="btn-primary">回到首页</button>
+            <button id="restartBtn" class="btn-secondary">Retake Test</button>
+            <button id="toTopBtn" class="btn-primary">Back to Home</button>
           </div>
         </div>
       </div>
@@ -783,291 +788,291 @@
   
   <script>
     const dimensionMeta = {
-      S1: { name: 'S1 自尊自信', model: '自我模型' },
-      S2: { name: 'S2 自我清晰度', model: '自我模型' },
-      S3: { name: 'S3 核心价值', model: '自我模型' },
-      E1: { name: 'E1 依恋安全感', model: '情感模型' },
-      E2: { name: 'E2 情感投入度', model: '情感模型' },
-      E3: { name: 'E3 边界与依赖', model: '情感模型' },
-      A1: { name: 'A1 世界观倾向', model: '态度模型' },
-      A2: { name: 'A2 规则与灵活度', model: '态度模型' },
-      A3: { name: 'A3 人生意义感', model: '态度模型' },
-      Ac1: { name: 'Ac1 动机导向', model: '行动驱力模型' },
-      Ac2: { name: 'Ac2 决策风格', model: '行动驱力模型' },
-      Ac3: { name: 'Ac3 执行模式', model: '行动驱力模型' },
-      So1: { name: 'So1 社交主动性', model: '社交模型' },
-      So2: { name: 'So2 人际边界感', model: '社交模型' },
-      So3: { name: 'So3 表达与真实度', model: '社交模型' }
+      S1: { name: 'S1 Self-Esteem', model: 'Self Model' },
+      S2: { name: 'S2 Self-Clarity', model: 'Self Model' },
+      S3: { name: 'S3 Core Values', model: 'Self Model' },
+      E1: { name: 'E1 Attachment Security', model: 'Emotional Model' },
+      E2: { name: 'E2 Emotional Investment', model: 'Emotional Model' },
+      E3: { name: 'E3 Boundaries & Dependence', model: 'Emotional Model' },
+      A1: { name: 'A1 Worldview', model: 'Attitude Model' },
+      A2: { name: 'A2 Rules & Flexibility', model: 'Attitude Model' },
+      A3: { name: 'A3 Sense of Purpose', model: 'Attitude Model' },
+      Ac1: { name: 'Ac1 Motivation', model: 'Action Drive Model' },
+      Ac2: { name: 'Ac2 Decision Style', model: 'Action Drive Model' },
+      Ac3: { name: 'Ac3 Execution Mode', model: 'Action Drive Model' },
+      So1: { name: 'So1 Social Initiative', model: 'Social Model' },
+      So2: { name: 'So2 Interpersonal Boundaries', model: 'Social Model' },
+      So3: { name: 'So3 Authenticity & Expression', model: 'Social Model' }
     };
     const questions = [
       {
         id: 'q1', dim: 'S1',
-        text: '我不仅是屌丝，我还是joker,我还是咸鱼，这辈子没谈过一场恋爱，胆怯又自卑，我的青春就是一场又一场的意淫，每一天幻想着我也能有一个女孩子和我一起压马路，一起逛街，一起玩，现实却是爆了父母金币，读了个烂学校，混日子之后找班上，没有理想，没有目标，没有能力的三无人员，每次看到你能在网上开屌丝的玩笑，我都想哭，我就是地底下的老鼠，透过下水井的缝隙，窥探地上的各种美好，每一次看到这种都是对我心灵的一次伤害，对我生存空间的一次压缩，求求哥们给我们这种小丑一点活路吧，我真的不想在白天把枕巾哭湿一大片',
+        text: 'I\'m not just a loser, I\'m also a joker, a deadbeat. Never had a relationship in my life. Timid and insecure. My youth is nothing but one fantasy after another — imagining having a girl to walk the streets with, go shopping with, hang out with. Reality? Burned through my parents\' money, went to a crappy school, drifted through life into a dead-end job. No dreams, no goals, no skills — a total nobody. Every time I see people joking about losers online, I want to cry. I\'m a rat underground, peeking through sewer grates at all the beautiful things above. Each glimpse is another wound to my soul, another squeeze on my living space. Please, give us clowns a chance to survive. I really don\'t want to soak my pillow with tears in broad daylight.',
         options: [
-          { label: '我哭了。。', value: 1 },
-          { label: '这是什么。。', value: 2 },
-          { label: '这不是我！', value: 3 }
+          { label: 'I\'m crying...', value: 1 },
+          { label: 'What even is this...', value: 2 },
+          { label: 'This is NOT me!', value: 3 }
         ]
       },
       {
         id: 'q2', dim: 'S1',
-        text: '我不够好，周围的人都比我优秀',
+        text: 'I\'m not good enough. Everyone around me is better than me.',
         options: [
-          { label: '确实', value: 1 },
-          { label: '有时', value: 2 },
-          { label: '不是', value: 3 }
+          { label: 'True', value: 1 },
+          { label: 'Sometimes', value: 2 },
+          { label: 'Not true', value: 3 }
         ]
       },
       {
         id: 'q3', dim: 'S2',
-        text: '我很清楚真正的自己是什么样的',
+        text: 'I have a clear understanding of who I really am.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q4', dim: 'S2',
-        text: '我内心有真正追求的东西',
+        text: 'Deep down, I have something I truly pursue.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q5', dim: 'S3',
-        text: '我一定要不断往上爬、变得更厉害',
+        text: 'I must keep climbing higher and becoming stronger.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q6', dim: 'S3',
-        text: '外人的评价对我来说无所吊谓。',
+        text: 'Other people\'s opinions of me? Couldn\'t care less.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q7', dim: 'E1',
-        text: '对象超过5小时没回消息，说自己窜稀了，你会怎么想？',
+        text: 'Your partner hasn\'t replied for 5 hours and says they had a stomach bug. What do you think?',
         options: [
-          { label: '拉稀不可能5小时，也许ta隐瞒了我。', value: 1 },
-          { label: '在信任和怀疑之间摇摆。', value: 2 },
-          { label: '也许今天ta真的不太舒服。', value: 3 }
+          { label: 'A stomach bug can\'t last 5 hours. Maybe they\'re hiding something.', value: 1 },
+          { label: 'Torn between trust and suspicion.', value: 2 },
+          { label: 'Maybe they really weren\'t feeling well today.', value: 3 }
         ]
       },
       {
         id: 'q8', dim: 'E1',
-        text: '我在感情里经常担心被对方抛弃',
+        text: 'I often worry about being abandoned in relationships.',
         options: [
-          { label: '是的', value: 1 },
-          { label: '偶尔', value: 2 },
-          { label: '不是', value: 3 }
+          { label: 'Yes', value: 1 },
+          { label: 'Sometimes', value: 2 },
+          { label: 'No', value: 3 }
         ]
       },
       {
         id: 'q9', dim: 'E2',
-        text: '我对天发誓，我对待每一份感情都是认真的！',
+        text: 'I swear to God, I take every relationship seriously!',
         options: [
-          { label: '并没有', value: 1 },
-          { label: '也许？', value: 2 },
-          { label: '是的！（问心无愧骄傲脸）', value: 3 }
+          { label: 'Not really', value: 1 },
+          { label: 'Maybe?', value: 2 },
+          { label: 'Yes! (with a clear conscience and pride)', value: 3 }
         ]
       },
       {
         id: 'q10', dim: 'E2',
-        text: '你的恋爱对象是一个尊老爱幼，温柔敦厚，洁身自好，光明磊落，大义凛然，能言善辩，口才流利，观察入微，见多识广，博学多才，诲人不倦，和蔼可亲，平易近人，心地善良，慈眉善目，积极进取，意气风发，玉树临风，国色天香，倾国倾城，花容月貌的人，此时你会？',
+        text: 'Your partner is kind, gentle, virtuous, charismatic, eloquent, perceptive, well-read, brilliant, patient, approachable, warm-hearted, ambitious, radiant, stunningly gorgeous — basically perfect in every possible way. What would you do?',
         options: [
-          { label: '就算ta再优秀我也不会陷入太深。', value: 1 },
-          { label: '会介于A和C之间。', value: 2 },
-          { label: '会非常珍惜ta，也许会变成恋爱脑。', value: 3 }
+          { label: 'No matter how amazing they are, I won\'t fall too deep.', value: 1 },
+          { label: 'Somewhere between A and C.', value: 2 },
+          { label: 'I\'d treasure them so much I might become love-brained.', value: 3 }
         ]
       },
       {
         id: 'q11', dim: 'E3',
-        text: '恋爱后，对象非常黏人，你作何感想？',
+        text: 'After getting into a relationship, your partner is extremely clingy. How do you feel?',
         options: [
-          { label: '那很爽了', value: 1 },
-          { label: '都行无所谓', value: 2 },
-          { label: '我更喜欢保留独立空间', value: 3 }
+          { label: 'That sounds amazing', value: 1 },
+          { label: 'Whatever, I\'m fine either way', value: 2 },
+          { label: 'I prefer keeping my own space', value: 3 }
         ]
       },
       {
         id: 'q12', dim: 'E3',
-        text: '我在任何关系里都很重视个人空间',
+        text: 'I value personal space in any relationship.',
         options: [
-          { label: '我更喜欢依赖与被依赖', value: 1 },
-          { label: '看情况', value: 2 },
-          { label: '是的！（斩钉截铁地说道）', value: 3 }
+          { label: 'I prefer mutual dependence', value: 1 },
+          { label: 'Depends', value: 2 },
+          { label: 'Absolutely! (said with unwavering conviction)', value: 3 }
         ]
       },
       {
         id: 'q13', dim: 'A1',
-        text: '大多数人是善良的',
+        text: 'Most people are kind-hearted.',
         options: [
-          { label: '其实邪恶的人心比世界上的痔疮更多。', value: 1 },
-          { label: '也许吧。', value: 2 },
-          { label: '是的，我愿相信好人更多。', value: 3 }
+          { label: 'Actually, evil hearts outnumber hemorrhoids in this world.', value: 1 },
+          { label: 'Maybe.', value: 2 },
+          { label: 'Yes, I\'d like to believe good people outnumber the bad.', value: 3 }
         ]
       },
       {
         id: 'q14', dim: 'A1',
-        text: '你走在街上，一位萌萌的小女孩蹦蹦跳跳地朝你走来（正脸、侧脸看都萌，用vivo、苹果、华为、OPPO手机看都萌，实在是非常萌的那种），她递给你一根棒棒糖，此时你作何感想？',
+        text: 'You\'re walking down the street when an adorable little girl skips toward you (cute from every angle, cute on every phone screen, just impossibly cute). She hands you a lollipop. What\'s your reaction?',
         options: [
-          { label: '呜呜她真好真可爱！居然给我棒棒糖！', value: 3 },
-          { label: '一脸懵逼，作挠头状', value: 2 },
-          { label: '这也许是一种新型诈骗？还是走开为好。', value: 1 }
+          { label: 'Aww she\'s so sweet and cute! She gave me a lollipop!', value: 3 },
+          { label: 'Confused, scratching my head', value: 2 },
+          { label: 'This might be some new type of scam? Better walk away.', value: 1 }
         ]
       },
       {
         id: 'q15', dim: 'A2',
-        text: '快考试了，学校规定必须上晚自习，请假会扣分，但今晚你约了女/男神一起玩《绝地求生：刺激战场》（一款刺激的游戏），你怎么办？',
+        text: 'Exams are coming up. School requires mandatory evening study hall — skipping means losing points. But tonight you made plans to play PUBG with your crush. What do you do?',
         options: [
-          { label: '翘了！反正就一次！', value: 1 },
-          { label: '干脆请个假吧。', value: 2 },
-          { label: '都快考试了还去啥。', value: 3 }
+          { label: 'Skip it! It\'s just one time!', value: 1 },
+          { label: 'Just ask for a leave.', value: 2 },
+          { label: 'Exams are coming, why would I skip?', value: 3 }
         ]
       },
       {
         id: 'q16', dim: 'A2',
-        text: '我喜欢打破常规，不喜欢被束缚',
+        text: 'I like breaking conventions. I don\'t like being constrained.',
         options: [
-          { label: '认同', value: 1 },
-          { label: '保持中立', value: 2 },
-          { label: '不认同', value: 3 }
+          { label: 'Agree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Disagree', value: 3 }
         ]
       },
       {
         id: 'q17', dim: 'A3',
-        text: '我做事通常有目标。',
+        text: 'I usually have goals when doing things.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q18', dim: 'A3',
-        text: '突然某一天，我意识到人生哪有什么他妈的狗屁意义，人不过是和动物一样被各种欲望支配着，纯纯是被激素控制的东西，饿了就吃，困了就睡，一发情就想交配，我们简直和猪狗一样没什么区别。',
+        text: 'One day it hits you: life has no f***ing meaning at all. Humans are just like animals, driven by desires, controlled by hormones. Hungry? Eat. Tired? Sleep. Horny? Mate. We\'re no different from pigs or dogs.',
         options: [
-          { label: '是这样的。', value: 1 },
-          { label: '也许是，也许不是。', value: 2 },
-          { label: '这简直是胡扯', value: 3 }
+          { label: 'That\'s exactly right.', value: 1 },
+          { label: 'Maybe, maybe not.', value: 2 },
+          { label: 'That\'s total nonsense.', value: 3 }
         ]
       },
       {
         id: 'q19', dim: 'Ac1',
-        text: '我做事主要为了取得成果和进步，而不是避免麻烦和风险。',
+        text: 'I do things mainly to achieve results and progress, not to avoid trouble and risk.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q20', dim: 'Ac1',
-        text: '你因便秘坐在马桶上（已长达30分钟），拉不出很难受。此时你更像',
+        text: 'You\'ve been sitting on the toilet for 30 minutes due to constipation. Nothing\'s coming out and it\'s miserable. What are you more like?',
         options: [
-          { label: '再坐三十分钟看看，说不定就有了。', value: 1 },
-          { label: '用力拍打自己的屁股并说：“死屁股，快拉啊！”', value: 2 },
-          { label: '使用开塞露，快点拉出来才好。', value: 3 }
+          { label: 'Sit for another 30 minutes. Maybe something will happen.', value: 1 },
+          { label: 'Slap my own butt yelling: "Come on, push it out already!"', value: 2 },
+          { label: 'Use a laxative. Just get it done.', value: 3 }
         ]
       },
       {
         id: 'q21', dim: 'Ac2',
-        text: '我做决定比较果断，不喜欢犹豫',
+        text: 'I make decisions quickly. I don\'t like hesitating.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       },
       {
         id: 'q22', dim: 'Ac2',
-        text: '此题没有题目，请盲选',
+        text: 'This question has no question. Just pick blindly.',
         options: [
-          { label: '反复思考后感觉应该选A？', value: 1 },
-          { label: '啊，要不选B？', value: 2 },
-          { label: '不会就选C？', value: 3 }
+          { label: 'After much deliberation... I think A?', value: 1 },
+          { label: 'Hmm, maybe B?', value: 2 },
+          { label: 'When in doubt, pick C?', value: 3 }
         ]
       },
       {
         id: 'q23', dim: 'Ac3',
-        text: '别人说你“执行力强”，你内心更接近哪句？',
+        text: 'When people say you have "strong execution," which response is closest to how you feel inside?',
         options: [
-          { label: '我被逼到最后确实执行力超强。。。', value: 1 },
-          { label: '啊，有时候吧。', value: 2 },
-          { label: '是的，事情本来就该被推进', value: 3 }
+          { label: 'Only when pushed to the very last second...', value: 1 },
+          { label: 'Eh, sometimes I guess.', value: 2 },
+          { label: 'Yes, things are meant to be pushed forward.', value: 3 }
         ]
       },
       {
         id: 'q24', dim: 'Ac3',
-        text: '我做事常常有计划，____',
+        text: 'I usually plan things out, ____',
         options: [
-          { label: '然而计划不如变化快。', value: 1 },
-          { label: '有时能完成，有时不能。', value: 2 },
-          { label: '我讨厌被打破计划。', value: 3 }
+          { label: 'But plans never survive reality.', value: 1 },
+          { label: 'Sometimes I follow through, sometimes I don\'t.', value: 2 },
+          { label: 'I hate when plans get disrupted.', value: 3 }
         ]
       },
       {
         id: 'q25', dim: 'So1',
-        text: '你因玩《第五人格》（一款刺激的游戏）而结识许多网友，并被邀请线下见面，你的想法是？',
+        text: 'You\'ve made many online friends through gaming and they invite you to meet up IRL. What do you think?',
         options: [
-          { label: '网上口嗨下就算了，真见面还是有点忐忑。', value: 1 },
-          { label: '见网友也挺好，反正谁来聊我就聊两句。', value: 2 },
-          { label: '我会打扮一番并热情聊天，万一呢，我是说万一呢？', value: 3 }
+          { label: 'Talking online is fine, but actually meeting up feels nerve-wracking.', value: 1 },
+          { label: 'Meeting up sounds okay. If someone chats, I\'ll chat.', value: 2 },
+          { label: 'I\'d dress up and chat enthusiastically. You never know, right?', value: 3 }
         ]
       },
       {
         id: 'q26', dim: 'So1',
-        text: '朋友带了ta的朋友一起来玩，你最可能的状态是',
+        text: 'Your friend brings their friend along to hang out. What\'s your most likely state?',
         options: [
-          { label: '对“朋友的朋友”天然有点距离感，怕影响二人关系', value: 1 },
-          { label: '看对方，能玩就玩。', value: 2 },
-          { label: '朋友的朋友应该也算我的朋友！要热情聊天', value: 3 }
+          { label: 'I naturally feel distant toward "friends of friends." Don\'t want to mess up dynamics.', value: 1 },
+          { label: 'Depends on the person. If they\'re cool, I\'ll vibe.', value: 2 },
+          { label: 'A friend\'s friend is basically my friend! Let\'s chat!', value: 3 }
         ]
       },
       {
         id: 'q27', dim: 'So2',
-        text: '我和人相处主打一个电子围栏，靠太近会自动报警。',
+        text: 'My approach to people is like an electric fence — get too close and the alarm goes off.',
         options: [
-          { label: '认同', value: 3 },
-          { label: '中立', value: 2 },
-          { label: '不认同', value: 1 }
+          { label: 'Agree', value: 3 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Disagree', value: 1 }
         ]
       },
       {
         id: 'q28', dim: 'So2',
-        text: '我渴望和我信任的人关系密切，熟得像失散多年的亲戚。',
+        text: 'I crave close relationships with people I trust — like long-lost relatives reunited.',
         options: [
-          { label: '认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '不认同', value: 3 }
+          { label: 'Agree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Disagree', value: 3 }
         ]
       },
       {
         id: 'q29', dim: 'So3',
-        text: '有时候你明明对一件事有不同的、负面的看法，但最后没说出来。多数情况下原因是：',
+        text: 'Sometimes you have a different, negative opinion about something but don\'t speak up. Most of the time, the reason is:',
         options: [
-          { label: '这种情况较少。', value: 1 },
-          { label: '可能碍于情面或者关系。', value: 2 },
-          { label: '不想让别人知道自己是个阴暗的人。', value: 3 }
+          { label: 'This rarely happens to me.', value: 1 },
+          { label: 'Probably to save face or preserve the relationship.', value: 2 },
+          { label: 'Don\'t want others to think I\'m a dark person.', value: 3 }
         ]
       },
       {
         id: 'q30', dim: 'So3',
-        text: '我在不同人面前会表现出不一样的自己',
+        text: 'I act differently around different people.',
         options: [
-          { label: '不认同', value: 1 },
-          { label: '中立', value: 2 },
-          { label: '认同', value: 3 }
+          { label: 'Disagree', value: 1 },
+          { label: 'Neutral', value: 2 },
+          { label: 'Agree', value: 3 }
         ]
       }
     ];
@@ -1076,22 +1081,22 @@
         id: 'drink_gate_q1',
         special: true,
         kind: 'drink_gate',
-        text: '您平时有什么爱好？',
+        text: 'What are your hobbies?',
         options: [
-          { label: '吃喝拉撒', value: 1 },
-          { label: '艺术爱好', value: 2 },
-          { label: '饮酒', value: 3 },
-          { label: '健身', value: 4 }
+          { label: 'Eating, sleeping, basic survival', value: 1 },
+          { label: 'Artistic pursuits', value: 2 },
+          { label: 'Drinking alcohol', value: 3 },
+          { label: 'Working out', value: 4 }
         ]
       },
       {
         id: 'drink_gate_q2',
         special: true,
         kind: 'drink_trigger',
-        text: '您对饮酒的态度是？',
+        text: 'What\'s your attitude toward drinking?',
         options: [
-          { label: '小酌怡情，喝不了太多。', value: 1 },
-          { label: '我习惯将白酒灌在保温杯，当白开水喝，酒精令我信服。', value: 2 }
+          { label: 'A drink or two for fun. Can\'t handle too much.', value: 1 },
+          { label: 'I pour liquor into a thermos and drink it like water. Alcohol is my gospel.', value: 2 }
         ]
       }
     ];
@@ -1099,165 +1104,165 @@
     const TYPE_LIBRARY = {
   "CTRL": {
     "code": "CTRL",
-    "cn": "拿捏者",
-    "intro": "怎么样，被我拿捏了吧？",
-    "desc": "恭喜您，您测出了全中国最为罕见的人格，您是宇宙熵增定律的天然反抗者！全世界所谓成功人士里，99.99%都是您的拙劣模仿者。CTRL人格，是行走的人形自走任务管理器，普通人眼中的“规则”，在您这里只是出厂的基础参数设置；凡人所谓的“计划”，对您而言不过是心血来潮的随手涂鸦。拥有一个CTRL朋友意味着什么？意味着你的人生导航系统会变得更加精准、高效。因为CTRL最会拿捏了。CTRL会在你人生列车即将脱轨的前一秒，用一个“Ctrl+S”帮你硬核存档，再用一套无法拒绝的逻辑把你强行拽回正轨。他们是你混乱生活最后的备份盘，是宇宙崩塌前唯一还亮着的那个重启键。"
+    "cn": "The Controller",
+    "intro": "Got you figured out, didn't I?",
+    "desc": "Congratulations, you've tested as the rarest personality on the planet — you are the natural rebel against the universe's law of entropy! 99.99% of so-called successful people worldwide are your inferior imitators. The CTRL personality is a walking, self-propelled task manager in human form. What ordinary people call 'rules' are just factory default settings to you; what mortals call 'plans' are merely casual doodles. Having a CTRL friend means your life's GPS system becomes infinitely more precise. CTRL will hit Ctrl+S to save your life one second before your train derails, then drag you back on track with irrefutable logic. They are the last backup drive of your chaotic life, the only restart button still glowing before the universe collapses."
   },
   "ATM-er": {
     "code": "ATM-er",
-    "cn": "送钱者",
-    "intro": "你以为我很有钱吗？",
-    "desc": "恭喜您，您竟然测出了这个世界上最稀有的人格。您或将成为金融界的未解之谜——是的，ATM-er不一定真的“送钱”，但可能永远在“支付”。支付时间、支付精力、支付耐心、支付一个本该安宁的夜晚。因此像一部老旧但坚固的ATM机，插进去的是别人的焦虑和麻烦，吐出来的是“没事，有我”的安心保证。您的人生就是一场盛大的、无人喝彩的单人付账秀。您竟用磐石般的可靠，承受了瀑布般的索取，偶尔夜深人静才会对着账单——可能是精神上的——发出一声叹息：我这该死的、无处安放的责任心啊。"
+    "cn": "The Giver",
+    "intro": "You think I'm made of money?",
+    "desc": "Congratulations, you've actually tested as the world's rarest personality. You may become finance's greatest unsolved mystery — yes, ATM-er doesn't necessarily 'give money,' but is forever 'paying.' Paying time, paying energy, paying patience, paying away what should have been a peaceful evening. Like a weathered but sturdy ATM machine: people insert their anxiety and problems, and out comes the reassurance of 'Don't worry, I got this.' Your life is a grand, unappreciated one-person bill-paying show. You bear a waterfall of demands with rock-solid reliability, only sighing at your spiritual bills late at night: this damn, homeless sense of responsibility."
   },
   "Dior-s": {
     "code": "Dior-s",
-    "cn": "屌丝",
-    "intro": "等着我屌丝逆袭。",
-    "desc": "恭喜！您并非屌丝，您是犬儒主义先贤第欧根尼失散多年的精神传人，因为屌丝的全称是 Diogenes' Original Realist - sage。Dior-s人格，是对当代消费主义陷阱和成功学PUA最彻底的蔑视。他们不是“不求上进”，而是早已看穿一切“上进”的尽头不过是更高级的牢房。屌丝有着大智慧。当别人在追逐风口，被时代的巨浪拍得七荤八素时，Dior-s早已在自己的精神木桶里晒着太阳，达到了“人桶合一”的至高境界。他们信奉的不是空话，是经过亿万次实践检验的物理法则与生物本能：一、躺着比站着舒服；二、饭点到了就得干饭。"
+    "cn": "The Loser",
+    "intro": "Just wait for my underdog comeback.",
+    "desc": "Congratulations! You're not actually a loser — you're the long-lost spiritual heir of Diogenes, the ancient Cynic philosopher. Because Dior-s stands for Diogenes' Original Realist-sage. The Dior-s personality represents the ultimate defiance of consumerism traps and hustle-culture manipulation. They're not 'lacking ambition' — they've already seen that the end of all 'ambition' is just a fancier prison cell. When everyone else is chasing trends and getting battered by the waves of the times, Dior-s is already sunbathing in their spiritual barrel, achieving the supreme state of 'person-barrel unity.' Their creed isn't empty talk — it's physical laws tested billions of times: 1. Lying down is more comfortable than standing. 2. When it's mealtime, you eat."
   },
   "BOSS": {
     "code": "BOSS",
-    "cn": "领导者",
-    "intro": "方向盘给我，我来开。",
-    "desc": "BOSS是一个手里永远拿着方向盘的人。哪怕油箱已经亮了红灯，哪怕导航在胡说八道，你都会面无表情地说一句：我来开。然后真的把车开到了目的地。该人格拥有独立的物理法则——永恒向上定律。BOSS人格看世界，就像玩通关了的玩家在看新手教程。效率是他们的信仰，秩序是他们的呼吸。他们不是“自带领袖气场”，他们本身就是人形的气场发生器，方圆五米内，空气都会自动变得严肃而高效。他们眼中的“自我突破”，约等于普通人眼中的“自虐”。今天掌握一门新语言，明天考下一个专业证书，后天就计划殖民火星。你说这太卷了，他会用一种看弱鸡的眼神看着你：不是我太狠，是你太松。"
+    "cn": "The Leader",
+    "intro": "Hand me the wheel. I'll drive.",
+    "desc": "BOSS is someone who always has their hands on the steering wheel. Even if the gas tank light is on, even if the GPS is spouting nonsense, you'll say with a straight face: I'll drive. And then actually get the car to its destination. This personality operates on its own physics — the Law of Eternal Ascent. BOSS sees the world like a maxed-out player watching a tutorial. Efficiency is their religion, order is their breathing. They don't 'have natural leadership aura' — they ARE the human aura generator. Within a 5-meter radius, the air automatically becomes serious and efficient. Their idea of 'self-improvement' equals what normal people call 'self-torture.' Learn a new language today, get a professional cert tomorrow, plan to colonize Mars the day after. You say that's too intense; they look at you like you're a weakling: I'm not too harsh, you're too soft."
   },
   "THAN-K": {
     "code": "THAN-K",
-    "cn": "感恩者",
-    "intro": "我感谢苍天！我感谢大地！",
-    "desc": "恭喜您，您测出了全中国最为罕见的人格。您应当感谢我！感谢您在此刻拥有了生命的滋润！倘若您上班路上堵车了？您也应当说一句：我感谢这次堵车，它让我有更多时间聆听这首美妙的歌曲，并欣赏窗外每一张因焦虑而扭曲的脸庞，让我更珍惜内心的平静。是的，THAN-K拥有温润如玉的性格和海纳百川的胸怀。他们眼中的世界没有完全的坏人，只有“尚未被感恩光芒照耀到的朋友”。拥有一个THAN-K朋友，就像身边多了一个永不枯竭的正能量发射塔。TA甚至能帮你从墙角的霉斑里发现一幅梵高风格的星空图。"
+    "cn": "The Grateful One",
+    "intro": "I thank the heavens! I thank the earth!",
+    "desc": "Congratulations, you've tested as the rarest personality. You should thank ME! Thank you for having life's nourishment in this moment! Stuck in traffic on the way to work? You should say: I'm grateful for this traffic jam — it gives me more time to listen to this beautiful song and admire every anxiously twisted face outside the window, making me cherish my inner peace more. Yes, THAN-K has a personality as warm as jade and a heart as vast as the ocean. In their eyes, there are no truly bad people, only 'friends not yet illuminated by the light of gratitude.' Having a THAN-K friend is like having an inexhaustible positive energy transmitter by your side. They can even help you discover a Van Gogh-style Starry Night in the mold stain on your wall."
   },
   "OH-NO": {
     "code": "OH-NO",
-    "cn": "哦不人",
-    "intro": "哦不！我怎么会是这个人格？！",
-    "desc": "“哦不！”并非恐惧的尖叫，而是一种顶级的智慧。当普通人看到一个杯子放在桌沿，哦不人看到的是一场由“水渍-短路-火灾-全楼疏散-经济损失-蝴蝶效应-世界末日”构成的灾难史诗。于是，伴随着一声发自灵魂深处的 Oh, no!，他们会以迅雷不及掩耳之势把杯子挪到桌子正中央，然后再垫上一张吸水杯垫。哦不人对“边界”有一种近乎偏执的尊重：你的就是你的，我的就是我的。所有意外和风险都已经在他的“Oh, no!”声中，被扼杀在了萌芽状态。他们是秩序的守护神，是混乱世界里最后那批神经绷得很直的体面人。"
+    "cn": "The Oh-No Person",
+    "intro": "Oh no! How am I this personality?!",
+    "desc": "'Oh no!' is not a scream of fear — it's a form of supreme wisdom. When normal people see a cup on the edge of a table, the Oh-No person sees an epic disaster chain: water stain → short circuit → fire → building evacuation → economic loss → butterfly effect → apocalypse. So, with a soul-deep 'Oh, no!', they move the cup to the center of the table at lightning speed and place an absorbent coaster underneath. The Oh-No person has an almost obsessive respect for boundaries: yours is yours, mine is mine. Every accident and risk has already been strangled in its cradle by their 'Oh, no!' They are the guardian deities of order, the last batch of tightly-wound, dignified people in this chaotic world."
   },
   "GOGO": {
     "code": "GOGO",
-    "cn": "行者",
-    "intro": "gogogo~出发咯",
-    "desc": "经研究发现，GOGO人格的大脑构造与常人有根本性不同。GOGO活在一个极致的“所见即所得”世界里，人生信条简单粗暴到令人发指：只要我闭上眼睛，天就是黑的；只要我把钱都花了，我就没有钱了；只要我站在斑马线上，我现在就是行人了。逻辑完美闭环，根本无法反驳。别人还在为“先有鸡还是先有蛋”而辩论，GOGO行者已经把鸡和蛋一起做成了一盘“鸡生蛋，蛋生鸡之终极奥义盖浇饭”。他们不是在“解决问题”，他们是在“清除待办事项”。对他们来说，世界上只有两种状态：已完成，和即将被我完成。"
+    "cn": "The Doer",
+    "intro": "Go go go~ Let's roll!",
+    "desc": "Research has found that the GOGO personality's brain structure is fundamentally different from normal people. GOGO lives in an ultimate 'what you see is what you get' world. Their life motto is absurdly simple: as long as I close my eyes, the sky is dark. As long as I spend all my money, I'm broke. As long as I'm standing on the crosswalk, I'm a pedestrian. Perfect logical loop. Impossible to refute. While others debate 'chicken or egg,' GOGO has already cooked both into a 'Chicken-Egg Ultimate Wisdom Rice Bowl.' They don't 'solve problems' — they 'clear to-do items.' For them, there are only two states in the world: Done, and About To Be Done By Me."
   },
   "SEXY": {
     "code": "SEXY",
-    "cn": "尤物",
-    "intro": "您就是天生的尤物！",
-    "desc": "当您走进一个房间，照明系统会自动将您识别为天生的尤物，并自觉调暗亮度，以避免能源浪费。当您微笑时，您就变成了微笑着的尤物，周围的空气湿度也会显著下降，因为水蒸气都凝结成了人眼中的爱心。无论是谁，都容易对您的存在产生一种超标的注意力。传说，如果有足够多的SEXY人格聚集在一起开派对，其释放出的综合魅力能量足以暂时扭曲时空结构，让参加者产生“时间变慢了”的幸福错觉。他们不需要卖力表达，很多时候，单是存在本身就已经很像一篇华丽到过分的赋。"
+    "cn": "The Bombshell",
+    "intro": "You are a natural-born bombshell!",
+    "desc": "When you walk into a room, the lighting system automatically identifies you as a natural bombshell and dims itself to avoid wasting energy. When you smile, you become a smiling bombshell, and the surrounding air humidity drops significantly because all the water vapor has condensed into heart shapes in people's eyes. Anyone and everyone tends to develop an excessive amount of attention toward your existence. Legend has it, if enough SEXY personalities gather for a party, the combined charm energy released can temporarily warp the fabric of spacetime, giving attendees the blissful illusion that 'time is slowing down.' They don't need to try hard to express themselves — often, their mere existence is already like an extravagantly ornate poem."
   },
   "LOVE-R": {
     "code": "LOVE-R",
-    "cn": "多情者",
-    "intro": "爱意太满，现实显得有点贫瘠。",
-    "desc": "LOVE-R人格像远古神话时代幸存至今的珍稀物种，其存在概率比你在马桶里钓到作者胳膊的概率还低。您简直是这个钢铁森林时代最后的、也是最不合时宜的吟游诗人。因为您的情感处理器不是二进制的，而是彩虹制的。一片落叶，在常人眼里只是“秋天来了”，在LOVE-R眼中，则是一场关于轮回、牺牲与无言之爱的十三幕悲喜剧。您内心世界像一座永不关门的主题公园，一生都在寻找那个能看懂园区地图、并愿意陪你坐旋转木马直到宇宙尽头的灵魂伴侣。"
+    "cn": "The Romantic",
+    "intro": "Too much love. Reality feels barren.",
+    "desc": "The LOVE-R personality is like a rare species surviving from ancient mythological times — their probability of existence is lower than fishing the author's arm out of a toilet. You are the last, most anachronistic troubadour of this steel-jungle age. Your emotional processor doesn't run on binary — it runs on rainbows. A falling leaf, which normal people see as 'autumn is here,' in LOVE-R's eyes becomes a thirteen-act tragicomedy about reincarnation, sacrifice, and wordless love. Your inner world is like a theme park that never closes, and you spend your whole life searching for that soulmate who can read the park map and is willing to ride the carousel with you until the end of the universe."
   },
   "MUM": {
     "code": "MUM",
-    "cn": "妈妈",
-    "intro": "或许...我可以叫你妈妈吗....?",
-    "desc": "恭喜您，您测出了全中国最稀有的妈妈人格。是的，在混沌未开、时间尚无姓名之前，在第一颗恒星打出第一个嗝之前，就已经有了妈妈。妈妈人格的底色是温柔，擅长感知情绪，具有超强共情力，知道什么时候该停下来，什么时候该对自己说一句“算了”。妈妈像一个医生，治愈了别人的不开心。只可惜，当妈妈落泪时，TA给自己的药，剂量总是比给别人小一号。MUM对自己的温柔，常常打了折。"
+    "cn": "The Mom",
+    "intro": "Maybe... can I call you Mom...?",
+    "desc": "Congratulations, you've tested as the rarest Mom personality. Yes — before chaos was born, before time had a name, before the first star burped its first burp, there was already Mom. The Mom personality's foundation is gentleness: skilled at sensing emotions, possessing superhuman empathy, knowing when to stop and when to tell themselves 'let it go.' Mom is like a doctor who heals everyone else's unhappiness. The only pity is, when Mom cries, the medicine they prescribe themselves is always a dose smaller than what they give others. MUM's gentleness toward themselves is always discounted."
   },
   "FAKE": {
     "code": "FAKE",
-    "cn": "伪人",
-    "intro": "已经，没有人类了。",
-    "desc": "SCP基金会紧急报告：项目编号 SCP-CN-████ “伪人”。在社交场合，伪人是八面玲珑的存在，因为他们切换人格面具比切换手机输入法还快。上一秒还是推心置腹的铁哥们模式，下一秒领导来了，瞬间切换成沉稳可靠好员工模式，连脸上的光泽度和卷曲度都会发生微调。你以为你交到了一个真心懂你的朋友？醒醒。你只是幸运地遇到了一个善于伪装、高性能的仿生人罢了。夜深人静时，伪人把面具一层层摘下来，最后才发现，面具下空得很，正是这些面具构成了自己。"
+    "cn": "The Shapeshifter",
+    "intro": "There are no humans left.",
+    "desc": "SCP Foundation Emergency Report: Item Number SCP-████ 'The Shapeshifter.' In social situations, the Shapeshifter is a master of all trades, switching persona masks faster than switching phone keyboards. One second they're in 'ride-or-die best friend' mode, the next second the boss walks in and — boom — instant switch to 'calm, reliable, model employee' mode, complete with subtle adjustments in facial glow and expression curvature. You thought you made a friend who truly understands you? Wake up. You just got lucky enough to meet a high-performance, camouflage-expert android. Late at night, the Shapeshifter peels off masks layer by layer, only to discover at the very bottom... it's empty. The masks themselves are what make up who they are."
   },
   "OJBK": {
     "code": "OJBK",
-    "cn": "无所谓人",
-    "intro": "我说随便，是真的随便。",
-    "desc": "让我们直面这个词的粗犷本质：OJBK。这已经不是一种人格，而是一种统治哲学。当凡人面临“中午吃米饭还是面条”的世纪抉择时，大脑在激烈燃烧卡路里；而OJBK人格，会用一种批阅奏章般的淡然，轻飘飘地吐出两个字：都行。这不是没主见，这是在告诉你：尔等凡俗的选择，于朕而言，皆为蝼蚁。为什么不争执？因为跟草履虫辩论宇宙的未来毫无意义。为什么不较真？因为帝王不会在意脚下的尘埃是往左飘还是往右飘。"
+    "cn": "The Whatever Person",
+    "intro": "When I say 'whatever,' I mean it.",
+    "desc": "Let's face the raw essence of this word: OJBK. This isn't just a personality — it's a ruling philosophy. When mortals face the century's greatest dilemma of 'rice or noodles for lunch,' their brains burn calories furiously. The OJBK personality, however, with the nonchalance of an emperor reviewing petitions, casually utters two words: 'Either's fine.' This isn't indecisiveness — it's telling you: your petty mortal choices are mere ants to my imperial self. Why no arguments? Because debating the future of the universe with an amoeba is pointless. Why no fuss? Because an emperor doesn't care whether the dust at their feet drifts left or right."
   },
   "MALO": {
     "code": "MALO",
-    "cn": "吗喽",
-    "intro": "人生是个副本，而我只是一只吗喽。",
-    "desc": "朋友，你不是“童心未泯”，你压根就没进化。你的灵魂还停留在那个挂在树上荡秋千、看见香蕉就两眼放光的快乐时代。当人类祖先决定从树上下来、学会直立行走、穿上西装打领带时，吗喽人格的祖先在旁边的大树上看着他们，挠了挠屁股，嘴里发出一声不屑的“吱”。他们看透了一切：所谓的“文明”，不过是一场最无聊、最不好玩的付费游戏。规则偶尔是可以打破的，天花板是用来倒挂的，会议室是用来表演后空翻的。MALO本身就是一个从巨大脑洞里掉出来、忘了关门的奇思妙想。"
+    "cn": "The Monkey",
+    "intro": "Life is a dungeon, and I'm just a monkey.",
+    "desc": "Friend, you're not 'young at heart' — you simply never evolved. Your soul is still in that happy era of swinging from trees and going wide-eyed at the sight of bananas. When humanity's ancestors decided to climb down from trees, learn to walk upright, and put on suits and ties, the Monkey personality's ancestor watched from a nearby tree, scratched their butt, and let out a contemptuous 'eek.' They saw through everything: so-called 'civilization' is just the most boring, least fun pay-to-play game. Rules are sometimes meant to be broken, ceilings are for hanging upside-down from, and meeting rooms are for performing backflips. MALO is itself a wild idea that fell out of a giant brain hole and forgot to close the door."
   },
   "JOKE-R": {
     "code": "JOKE-R",
-    "cn": "小丑",
-    "intro": "原来我们都是小丑。",
-    "desc": "请注意，JOKE-R人格不是一个“人”，更像一个把笑话穿在身上的小丑。你打开一层，是个笑话；再打开一层，是个段子；你一层层打开，直到最后，你发现最里面……是空的，只剩下一点微弱的回声在说：哈，没想到吧。JOKE-R是社交场合的气氛组组长兼唯一指定火力输出。有他们在，场子就不会冷。所有人前仰后合地笑着，而笑得最开心的，往往也是他们自己——用最大的笑声，盖住心碎的声音。"
+    "cn": "The Clown",
+    "intro": "Turns out we're all clowns.",
+    "desc": "Please note: the JOKE-R personality isn't a 'person' — it's more like a clown wearing jokes as clothing. Peel one layer: a joke. Peel another: a punchline. Keep peeling, layer after layer, until you reach the very center and find... it's empty. Just a faint echo whispering: 'Ha, didn't expect that, did you?' JOKE-R is the mood team captain and sole designated firepower of every social gathering. With them around, the vibe never dies. Everyone's laughing their heads off, and the one laughing hardest is usually JOKE-R themselves — using the loudest laughter to drown out the sound of a breaking heart."
   },
   "WOC!": {
     "code": "WOC!",
-    "cn": "握草人",
-    "intro": "卧槽，我怎么是这个人格？",
-    "desc": "我们发现了一种神奇的生物——WOC!人。他们拥有两种完全独立的操作系统：一个叫“表面系统”，负责发出“我操”“牛逼”“啊？”等一系列大惊小怪的拟声词；另一个叫“后台系统”，负责冷静分析：嗯，果然不出我所料。WOC!人只会卧槽，不会多管闲事，因为他们深知，给傻逼讲道理，就像扶着烂泥上墙，不仅浪费体力，还弄自己一手屎。所以他们选择，握着一根智慧的大草，用一声饱含深情的“WOC！”来为这个疯狂的世界献上最高敬意。"
+    "cn": "The WTF Person",
+    "intro": "WTF, how am I this personality?",
+    "desc": "We've discovered a miraculous creature — the WOC! person. They run two completely independent operating systems: one called the 'Surface System,' responsible for producing exclamations like 'WTF,' 'holy crap,' and 'huh?'; the other called the 'Backend System,' responsible for calmly analyzing: yep, just as I predicted. The WOC! person will say 'WTF' but never meddle, because they know full well that reasoning with idiots is like trying to prop mud against a wall — not only a waste of energy, but you get your hands dirty too. So they choose to hold a blade of wisdom-grass and offer one heartfelt 'WOC!' as the highest tribute to this insane world."
   },
   "THIN-K": {
     "code": "THIN-K",
-    "cn": "思考者",
-    "intro": "已深度思考100s。",
-    "desc": "经研究发现，THIN-K人格的大脑构造与常人有根本性不同。正如名称所示，您的大脑长时间处于思考状态。您十分会审判信息，注重论点、论据、逻辑推理、潜在偏见，乃至“作者本人三代以内思想背景调查报告”的全套材料。在这个信息爆炸的时代，您绝不会轻易盲从，会在关系中衡量利弊，也十分捍卫自己的自我空间。当别人看到您独处时在发呆？愚蠢，那不是发呆，那是您的大脑正在对今天接收到的所有信息进行分类、归档和销毁。"
+    "cn": "The Thinker",
+    "intro": "Deep thinking for 100 seconds...",
+    "desc": "Research has found that the THIN-K personality's brain structure is fundamentally different from normal people. As the name suggests, your brain is perpetually in thinking mode. You excel at judging information, scrutinizing arguments, evidence, logical reasoning, potential biases — even demanding a 'three-generation ideological background investigation report' on the author. In this age of information overload, you never blindly follow. You weigh pros and cons in relationships and fiercely defend your personal space. When others see you alone and think you're spacing out? Fools. That's your brain sorting, filing, and shredding all the information received today."
   },
   "SHIT": {
     "code": "SHIT",
-    "cn": "愤世者",
-    "intro": "这个世界，构石一坨。",
-    "desc": "恭喜您，SHIT人格是宇宙中已知的唯一一种稀有人格。所谓狗屎，并不是在抱怨，而是在进行一种神秘仪式。SHIT的行为模式是一场惊天动地的悖论戏剧。嘴上：这个项目简直是屎。手上：默默打开 Excel，开始建构函数模型和甘特图。嘴上：这帮同事都是 shit。手上：在同事搞砸之后，一边烦着，一边熬夜把烂摊子收拾得明明白白。嘴上：这个世界就是一坨 shit，赶紧毁灭吧。手上：第二天早上七点准时起床，挤上 shit 一样的地铁，去干那份 shit 一样的工作。别怕，那不是世界末日的警报，那是他马上要开始拯救世界的冲锋号。"
+    "cn": "The Rager",
+    "intro": "This world is a pile of crap.",
+    "desc": "Congratulations, the SHIT personality is the only known rare personality in the universe. The so-called sh*t isn't complaining — it's performing a mysterious ritual. SHIT's behavioral pattern is a mind-blowing paradox play. Mouth: 'This project is absolute sh*t.' Hands: quietly opens Excel, starts building function models and Gantt charts. Mouth: 'These coworkers are all sh*t.' Hands: after a colleague screws up, stays up all night cleaning the mess while grumbling. Mouth: 'This world is a pile of sh*t, just destroy it already.' Hands: wakes up at 7 AM sharp the next morning, squeezes onto the sh*tty subway, goes to do that sh*tty job. Don't be afraid — that's not the apocalypse alarm. That's the charge horn signaling they're about to save the world."
   },
   "ZZZZ": {
     "code": "ZZZZ",
-    "cn": "装死者",
-    "intro": "我没死，我只是在睡觉。",
-    "desc": "恭喜您，您测出了全中国最稀有的装死人格。群里99+条消息您可以视而不见，但当有人发出“@全体成员 还有半小时就截止了”的最后通牒时，您也许会像刚从千年古墓里苏醒一样，缓缓地敲出一个“收到”，然后在29分钟内，交出一份虽然及格的答卷。是的，直到“死线”这个唯一的、最高权限的指令出现，您就真正爆发了，不鸣则已，一鸣惊人。您向宇宙证明了一个真理：有时什么都不做，就不会做错。"
+    "cn": "The Dead-Player",
+    "intro": "I'm not dead, I'm just sleeping.",
+    "desc": "Congratulations, you've tested as the rarest playing-dead personality. 99+ unread messages in the group chat? You can pretend they don't exist. But when someone drops '@everyone — 30 minutes until deadline,' you'll awaken like a mummy rising from an ancient tomb, slowly type out 'Got it,' then deliver a passing-grade submission in 29 minutes. Yes — only when the 'deadline,' that supreme highest-authority command, appears do you truly erupt. Silent until the moment of thunder. You've proven a universal truth: sometimes doing nothing means doing nothing wrong."
   },
   "POOR": {
     "code": "POOR",
-    "cn": "贫困者",
-    "intro": "我穷，但我很专。",
-    "desc": "恭喜您，您测出了【POOR - 贫困者】。这个“贫困”不是钱包余额的判决书，更像一种欲望断舍离后的资源再分配。别人把精力撒成漫天二维码，你把精力压成一束激光，照哪儿，哪儿就开始冒烟。POOR的世界很简单：不重要的东西一律降噪，重要的东西狠狠干到底。热闹、社交、虚荣、到处刷存在感？抱歉，没空。你不是资源少，你是把资源全部灌进了一个坑里，所以看起来像贫困，实际上像矿井。一旦某件事被你认定值得钻，外界再吵也只是背景杂音。"
+    "cn": "The Focused",
+    "intro": "I'm poor, but I'm laser-focused.",
+    "desc": "Congratulations, you've tested as POOR — The Focused. This 'poverty' isn't a verdict on your bank balance — it's more like resource reallocation after a desire detox. Others scatter their energy like QR codes everywhere; you compress yours into a laser beam — wherever it hits starts smoking. POOR's world is simple: noise-cancel everything unimportant, and go absolutely hard on what matters. Socializing, vanity, attention-seeking? Sorry, no time. You don't have fewer resources — you've poured every last drop into one single well. So you look 'poor' on the surface, but you're actually a mineshaft. Once you decide something's worth drilling into, the outside world is just background noise."
   },
   "MONK": {
     "code": "MONK",
-    "cn": "僧人",
-    "intro": "没有那种世俗的欲望。",
-    "desc": "当别人在KTV里参悟爱与恨的纠缠，MONK人格选择在家中参悟一份大道。MONK已然看破红尘，不希望闲人来扰其清修、破其道行。MONK的个人空间，是他们的结界，是他们的须弥山，是他们的绝对领域，神圣不可侵犯。踏入者，会感受到一种来自灵魂深处的窒息感。MONK们不黏不缠，因为在他们的世界观里，万物皆有其独立轨道。行星与行星之间保持着亿万公里的距离，才构成和谐宇宙，人与人之间为什么不行？"
+    "cn": "The Monk",
+    "intro": "Free from worldly desires.",
+    "desc": "While others are at karaoke contemplating the entanglements of love and hate, the MONK personality chooses to contemplate the Great Dao at home. MONK has already seen through the mortal world and doesn't want idle visitors disturbing their spiritual cultivation. MONK's personal space is their barrier, their Mount Sumeru, their absolute domain — sacred and inviolable. Trespassers will feel a suffocating pressure emanating from the depths of the soul. MONKs don't cling or entangle, because in their worldview, all things have their independent orbits. Planets maintain billions of kilometers of distance between each other to form a harmonious universe — why can't people do the same?"
   },
   "IMSB": {
     "code": "IMSB",
-    "cn": "傻者",
-    "intro": "认真的么？我真的是傻逼么？",
-    "desc": "恭喜您！您根本不在人类范畴内！您测出了百万年一遇的【IMSB】人格。IMSB人格的大脑里住着两个不死不休的究极战士：一个叫“我他妈冲了！”，另一个叫“我是个傻逼！”。当IMSB面对一个有好感的人时，前者会说：冲啊！去要微信！去约饭！爱要大声说出来！后者接着说：人家凭什么看得上你？你去了就是自取其辱！最终结果：盯着对方背影直到消失，然后掏出手机搜索“如何克服社交恐惧症”。IMSB不是真的傻，只是您的内心戏，可能比漫威宇宙所有电影加起来都长。"
+    "cn": "The Self-Doubter",
+    "intro": "Seriously? Am I really that dumb?",
+    "desc": "Congratulations! You're beyond the scope of humanity! You've tested as the once-in-a-million-years IMSB personality. Inside IMSB's brain live two undying ultimate warriors: one called 'F*** it, I'm going in!' and the other called 'I'm such an idiot!' When IMSB encounters someone they like, the first one says: Go! Get their number! Ask them to dinner! Say it loud! The second one replies: Why would they even look at you? Going over there is just asking for humiliation! Final result: stares at the person's back until they disappear, then pulls out phone and searches 'how to overcome social anxiety.' IMSB isn't actually dumb — it's just that your inner drama might be longer than all Marvel movies combined."
   },
   "SOLO": {
     "code": "SOLO",
-    "cn": "孤儿",
-    "intro": "我哭了，我怎么会是孤儿？",
-    "desc": "恭喜您，您测出了全中国最稀有的【SOLO - 孤儿】人格。别急着哭，国王的加冕仪式，通常都是一个人。孤儿的自我价值感偏低，因此有时主动疏远他人，孤儿们在自己的灵魂外围建起了一座名为“莫挨老子”的万里长城。每一块砖，都是过去的一道伤口。孤儿就像一只把所有软肋都藏起来，然后用最硬的刺对着世界的刺猬。那满身的尖刺不是攻击，那是一句句说不出口的“别过来，我怕你也受伤”和“求求你，别离开”。"
+    "cn": "The Lone Wolf",
+    "intro": "I'm crying... how am I a lone wolf?",
+    "desc": "Congratulations, you've tested as the rarest SOLO — The Lone Wolf personality. Don't cry just yet — a king's coronation ceremony is usually a solo affair. The Lone Wolf's self-worth tends to run low, so they sometimes actively distance themselves from others. They've built a Great Wall around their soul labeled 'Don't Touch Me.' Every brick is a wound from the past. The Lone Wolf is like a hedgehog that hides all its soft spots and points its sharpest spines at the world. Those spines aren't attacks — they're unspoken words: 'Don't come closer, I'm afraid you'll get hurt too' and 'Please, don't leave.'"
   },
   "FUCK": {
     "code": "FUCK",
-    "cn": "草者",
-    "intro": "操！这是什么人格？",
-    "desc": "恭喜您！您根本不在人类范畴内！您测出了百万年一遇的【FUCK】人格。人类文明城市里，出现了一株无法被任何除草剂杀死的、具有超级生命力的人形野草——那就是草者人格。它的学名，就叫 FUCK。在FUCK的世界观里，世俗规则简直毫无意义，并且FUCK的情绪开关是物理拨片式的：FUCK YEAH 和 FUCK OFF。FUCK追求的不只是当下快感，也在追求一种在体内横冲直撞的生命力。当所有人都被驯化成了温顺家禽，FUCK则是荒野上最后那一声狼嚎。"
+    "cn": "The Wild One",
+    "intro": "F***! What kind of personality is this?",
+    "desc": "Congratulations! You're beyond the scope of humanity! You've tested as the once-in-a-million-years FUCK personality. In the cities of human civilization, a plant has appeared that no herbicide can kill, possessing superhuman vitality — a human-shaped weed. Its scientific name: FUCK. In FUCK's worldview, worldly rules are utterly meaningless. FUCK's emotional switch is a physical toggle: FUCK YEAH and FUCK OFF. FUCK doesn't just chase instant gratification — they pursue a wild, rampaging life force coursing through their body. When everyone else has been domesticated into docile poultry, FUCK is the last wolf howl echoing across the wilderness."
   },
   "DEAD": {
     "code": "DEAD",
-    "cn": "死者",
-    "intro": "我，还活着吗？",
-    "desc": "恭喜您，您测出了全中国最为罕见的人格，只是“死者”这个名字实在有点晦气，所以也可以叫：Don't Expect Any Drives。死者已经看透了那些无意义的哲学思考，因此显得对一切“失去”了兴趣。死者们看世界的眼神，就像一位顶级玩家通关了所有主线、支线、隐藏任务，删档重开了999次之后，终于发现：这游戏压根就没意思。死者是超越了欲望和目标的终极贤者。他们的存在，就是对这个喧嚣世界最沉默也最彻底的抗议。"
+    "cn": "The Departed",
+    "intro": "Am I... even alive?",
+    "desc": "Congratulations, you've tested as the rarest personality — though the name 'The Departed' is a bit grim, so you can also call it: Don't Expect Any Drives. The Departed has already seen through all those meaningless philosophical musings, and thus appears to have 'lost' interest in everything. They look at the world like a top-tier player who's beaten every main quest, side quest, and hidden mission, reset their save 999 times, and finally realized: this game was never fun to begin with. The Departed is the ultimate sage who has transcended desire and ambition. Their very existence is the most silent, most thorough protest against this noisy world."
   },
   "IMFW": {
     "code": "IMFW",
-    "cn": "废物",
-    "intro": "我真的...是废物吗？",
-    "desc": "恭喜您，您测出的不是一个普通人格，您是一种极其珍稀的、仅占世界人口0.0001％的——【废物】。废物们的自尊通常有些脆弱，缺乏安全感，偶尔也会缺乏主见，因此这种人格能精确地感知到周围最强的那个 WiFi 信号——也就是他们心里最可靠的人。走进【废物】人格的生活，就像走进了一个顶级兰花温室：需要精确控制温度、湿度，以及每天定时进行“我爱你”的言语光合作用。给废物一颗糖，他们会还你一个完全信任你、亮晶晶的眼神。你未必是废物，你只是太没防备，太容易认真。"
+    "cn": "The Useless One",
+    "intro": "Am I really... useless?",
+    "desc": "Congratulations, you haven't tested as an ordinary personality — you are an extremely rare species comprising only 0.0001% of the world's population: The Useless One. Their self-esteem tends to be fragile, they lack security, and sometimes lack assertiveness. But this personality can precisely detect the strongest WiFi signal around — that is, the most reliable person in their heart. Entering the life of The Useless One is like stepping into a premium orchid greenhouse: you need precise temperature control, humidity control, and daily scheduled 'I love you' verbal photosynthesis sessions. Give The Useless One a candy, and they'll give you back a pair of sparkling, completely trusting eyes. You're not really useless — you're just too unguarded, too easily sincere."
   },
   "HHHH": {
     "code": "HHHH",
-    "cn": "傻乐者",
-    "intro": "哈哈哈哈哈哈。",
-    "desc": "恭喜您！由于您的思维回路过于清奇，标准人格库已全面崩溃。第一人格匹配率只有60％以下时，系统才会为您强制匹配这个人格——【HHHH - 傻乐者】。这个人格有什么特质？哈哈哈哈哈哈哈哈哈哈哈哈！对不起，这就是全部的特质了。您可以查看十五维度进行不专业的评估，实在是抱歉！作者设置人格时没有考虑全面，因此才会出现这样的状况。哈哈哈哈哈哈……笑着笑着，我便哭了出来。怎么会有人的脑回路这么新奇。"
+    "cn": "The Happy Fool",
+    "intro": "Hahahahahaha.",
+    "desc": "Congratulations! Your thought circuits are so unique that the standard personality database has completely crashed. Only when the top match rate falls below 60% does the system force-assign this personality — HHHH, The Happy Fool. What traits does this personality have? HAHAHAHAHAHAHA! Sorry, that IS the entire trait. You can check the 15-dimension scores for an unprofessional assessment. Our sincere apologies! The creator didn't think of everything when setting up personalities, which is why this situation occurs. Hahahaha... laughing and laughing, I started crying. How can someone's brain circuits be this bizarre?"
   },
   "DRUNK": {
     "code": "DRUNK",
-    "cn": "酒鬼",
-    "intro": "烈酒烧喉，不得不醉。",
-    "desc": "您为什么走路摇摇晃晃？您为什么总是情绪高涨？您为什么看东西是重影的？因为您体内流淌的不是血液，是美味的五粮液！是国窖1573！是江小白！是陕西五粮液！哦，美味的白酒，每一滴都在燃烧，都在沸腾。您是否已经习惯了将白酒灌入保温杯，当作白开水一饮而下？多么伟大的白酒！它让您在饭桌上谈笑风生，在厕所里抱着马桶忏悔人生；它让您觉得自己是夜场诗人，是宇宙中心那团不灭的火，直到第二天上午十点，您的头像裂开的核桃，嘴角挂着食物残渣，灵魂缩在角落里。您终于明白，昨晚那个高谈阔论、拍桌怒吼的人，已经成为了一个酒鬼。"
+    "cn": "The Drunkard",
+    "intro": "Liquor burns the throat. No choice but to get wasted.",
+    "desc": "Why do you walk all wobbly? Why are your emotions always running high? Why do you see double? Because what flows through your veins isn't blood — it's delicious whiskey! It's premium vodka! It's fine tequila! It's aged bourbon! Oh, glorious liquor, every drop burning, every drop boiling. Have you already gotten used to pouring spirits into a thermos and chugging it like water? How magnificent, alcohol! It makes you the life of the dinner table, then finds you hugging the toilet confessing your life's sins. It makes you feel like a nightclub poet, the eternal flame at the center of the universe — until 10 AM the next day, when your head splits like a cracked walnut, food residue clings to your lips, and your soul cowers in a corner. You finally understand: that eloquent, table-pounding person from last night has become... a drunkard."
   }
 };
     const TYPE_IMAGES = {
@@ -1394,79 +1399,79 @@
 ];
     const DIM_EXPLANATIONS = {
   "S1": {
-    "L": "对自己下手比别人还狠，夸你两句你都想先验明真伪。",
-    "M": "自信值随天气波动，顺风能飞，逆风先缩。",
-    "H": "心里对自己大致有数，不太会被路人一句话打散。"
+    "L": "You're harder on yourself than anyone else. If someone compliments you, you'd verify the source first.",
+    "M": "Confidence fluctuates with the weather — soaring with tailwinds, shrinking with headwinds.",
+    "H": "You have a rough sense of who you are, and a random comment won't shake you."
   },
   "S2": {
-    "L": "内心频道雪花较多，常在“我是谁”里循环缓存。",
-    "M": "平时还能认出自己，偶尔也会被情绪临时换号。",
-    "H": "对自己的脾气、欲望和底线都算门儿清。"
+    "L": "Inner channel has lots of static. Often stuck buffering in the 'Who am I?' loop.",
+    "M": "Usually recognize yourself, but emotions occasionally hijack your identity.",
+    "H": "Pretty clear about your temper, desires, and bottom lines."
   },
   "S3": {
-    "L": "更在意舒服和安全，没必要天天给人生开冲刺模式。",
-    "M": "想上进，也想躺会儿，价值排序经常内部开会。",
-    "H": "很容易被目标、成长或某种重要信念推着往前。"
+    "L": "Comfort and safety come first. No need to run life in sprint mode every day.",
+    "M": "Want to improve, also want to lie down. Your values have frequent internal meetings.",
+    "H": "Easily driven forward by goals, growth, or some important belief."
   },
   "E1": {
-    "L": "感情里警报器灵敏，已读不回都能脑补到大结局。",
-    "M": "一半信任，一半试探，感情里常在心里拉锯。",
-    "H": "更愿意相信关系本身，不会被一点风吹草动吓散。"
+    "L": "Your relationship alarm system is hypersensitive. A 'seen' with no reply triggers the series finale in your head.",
+    "M": "Half trust, half testing. An internal tug-of-war is constant in relationships.",
+    "H": "More willing to trust the relationship itself. Won't be scared off by a little breeze."
   },
   "E2": {
-    "L": "感情投入偏克制，心门不是没开，是门禁太严。",
-    "M": "会投入，但会给自己留后手，不至于全盘梭哈。",
-    "H": "一旦认定就容易认真，情绪和精力都给得很足。"
+    "L": "Emotionally reserved. The heart's door isn't closed — the security clearance is just very strict.",
+    "M": "Will invest, but keeps a safety net. Won't go all-in.",
+    "H": "Once committed, tends to go all-in with emotion and energy."
   },
   "E3": {
-    "L": "容易黏人也容易被黏，关系里的温度感很重要。",
-    "M": "亲密和独立都要一点，属于可调节型依赖。",
-    "H": "空间感很重要，再爱也得留一块属于自己的地。"
+    "L": "Easily clingy and easily clung to. Warmth and closeness in relationships matter a lot.",
+    "M": "Needs a bit of both intimacy and independence. Adjustable-type dependency.",
+    "H": "Personal space is crucial. No matter how much love, there must be a zone that's just yours."
   },
   "A1": {
-    "L": "看世界自带防御滤镜，先怀疑，再靠近。",
-    "M": "既不天真也不彻底阴谋论，观望是你的本能。",
-    "H": "更愿意相信人性和善意，遇事不急着把世界判死刑。"
+    "L": "Views the world through a defense filter. Doubt first, approach later.",
+    "M": "Neither naive nor full conspiracy theorist. Watching from the sidelines is your instinct.",
+    "H": "More willing to believe in human goodness. Doesn't rush to condemn the world."
   },
   "A2": {
-    "L": "规则能绕就绕，舒服和自由往往排在前面。",
-    "M": "该守的时候守，该变通的时候也不死磕。",
-    "H": "秩序感较强，能按流程来就不爱即兴炸场。"
+    "L": "Rules are meant to be bent. Comfort and freedom usually rank first.",
+    "M": "Follows rules when needed, adapts when it makes sense. No stubbornness either way.",
+    "H": "Strong sense of order. If there's a process, prefers not to improvise."
   },
   "A3": {
-    "L": "意义感偏低，容易觉得很多事都像在走过场。",
-    "M": "偶尔有目标，偶尔也想摆烂，人生观处于半开机。",
-    "H": "做事更有方向，知道自己大概要往哪边走。"
+    "L": "Low sense of meaning. Many things feel like they're just going through the motions.",
+    "M": "Sometimes has goals, sometimes wants to slack off. Life philosophy is in standby mode.",
+    "H": "More direction-oriented. Has a general idea of where they're heading."
   },
   "Ac1": {
-    "L": "做事先考虑别翻车，避险系统比野心更先启动。",
-    "M": "有时想赢，有时只想别麻烦，动机比较混合。",
-    "H": "更容易被成果、成长和推进感点燃。"
+    "L": "Risk-avoidance system boots up before ambition does. Main concern: don't crash.",
+    "M": "Sometimes wants to win, sometimes just wants to avoid hassle. Mixed motivation.",
+    "H": "Easily ignited by results, growth, and the feeling of progress."
   },
   "Ac2": {
-    "L": "做决定前容易多转几圈，脑内会议常常超时。",
-    "M": "会想，但不至于想死机，属于正常犹豫。",
-    "H": "拍板速度快，决定一下就不爱回头磨叽。"
+    "L": "Tends to overthink before deciding. The brain's internal meeting frequently runs overtime.",
+    "M": "Will think, but won't think until the system crashes. Normal-level hesitation.",
+    "H": "Makes decisions fast. Once decided, doesn't like looking back and dawdling."
   },
   "Ac3": {
-    "L": "执行力和死线有深厚感情，越晚越像要觉醒。",
-    "M": "能做，但状态看时机，偶尔稳偶尔摆。",
-    "H": "推进欲比较强，事情不落地心里都像卡了根刺。"
+    "L": "Execution and deadlines share a deep bond. The later it gets, the more the awakening kicks in.",
+    "M": "Can do it, but depends on timing. Sometimes steady, sometimes slacking.",
+    "H": "Strong drive to push things forward. Unfinished tasks feel like a thorn in the side."
   },
   "So1": {
-    "L": "社交启动慢热，主动出击这事通常得攒半天气。",
-    "M": "有人来就接，没人来也不硬凑，社交弹性一般。",
-    "H": "更愿意主动打开场子，在人群里不太怕露头。"
+    "L": "Slow to warm up socially. Taking initiative usually requires half a day of mental prep.",
+    "M": "If someone approaches, they'll engage. If not, they won't force it. Average social elasticity.",
+    "H": "More willing to break the ice. Not afraid to stand out in a crowd."
   },
   "So2": {
-    "L": "关系里更想亲近和融合，熟了就容易把人划进内圈。",
-    "M": "既想亲近又想留缝，边界感看对象调节。",
-    "H": "边界感偏强，靠太近会先本能性后退半步。"
+    "L": "Prefers closeness and merging in relationships. Once familiar, quick to pull people into the inner circle.",
+    "M": "Wants closeness but also space. Boundary settings adjust based on the person.",
+    "H": "Strong boundary sense. Getting too close triggers an instinctive half-step back."
   },
   "So3": {
-    "L": "表达更直接，心里有啥基本不爱绕。",
-    "M": "会看气氛说话，真实和体面通常各留一点。",
-    "H": "对不同场景的自我切换更熟练，真实感会分层发放。"
+    "L": "More direct in expression. What's on the mind comes out without much detour.",
+    "M": "Reads the room when speaking. Keeps a balance between authenticity and diplomacy.",
+    "H": "Skilled at switching personas across different settings. Authenticity is distributed in layers."
   }
 };
     const dimensionOrder = ['S1','S2','S3','E1','E2','E3','A1','A2','A3','Ac1','Ac2','Ac3','So1','So2','So3'];
@@ -1517,8 +1522,8 @@
     }
 
     function getQuestionMetaLabel(q) {
-      if (q.special) return '补充题';
-      return app.previewMode ? dimensionMeta[q.dim].name : '维度已隐藏';
+      if (q.special) return 'Bonus Question';
+      return app.previewMode ? dimensionMeta[q.dim].name : 'Dimension Hidden';
     }
 
     function renderQuestions() {
@@ -1529,7 +1534,7 @@
         card.className = 'question';
         card.innerHTML = `
           <div class="question-meta">
-            <div class="badge">第 ${index + 1} 题</div>
+            <div class="badge">Q${index + 1}</div>
             <div>${getQuestionMetaLabel(q)}</div>
           </div>
           <div class="question-title">${q.text}</div>
@@ -1580,8 +1585,8 @@
       const complete = done === total && total > 0;
       submitBtn.disabled = !complete;
       testHint.textContent = complete
-        ? '都做完了。现在可以把你的电子魂魄交给结果页审判。'
-        : '全选完才会放行。世界已经够乱了，起码把题做完整。';
+        ? 'All done. Now you may surrender your digital soul to the results page for judgment.'
+        : 'Answer all questions to proceed. The world is chaotic enough — at least finish the test.';
     }
 
     function sumToLevel(score) {
@@ -1637,24 +1642,24 @@
       const drunkTriggered = getDrunkTriggered();
 
       let finalType;
-      let modeKicker = '你的主类型';
-      let badge = `匹配度 ${bestNormal.similarity}% · 精准命中 ${bestNormal.exact}/15 维`;
-      let sub = '维度命中度较高，当前结果可视为你的第一人格画像。';
+      let modeKicker = 'Your Primary Type';
+      let badge = `Match ${bestNormal.similarity}% · ${bestNormal.exact}/15 dimensions hit`;
+      let sub = 'High dimension accuracy. This result can be considered your primary personality portrait.';
       let special = false;
       let secondaryType = null;
 
       if (drunkTriggered) {
         finalType = TYPE_LIBRARY.DRUNK;
         secondaryType = bestNormal;
-        modeKicker = '隐藏人格已激活';
-        badge = '匹配度 100% · 酒精异常因子已接管';
-        sub = '乙醇亲和性过强，系统已直接跳过常规人格审判。';
+        modeKicker = 'Hidden Personality Activated';
+        badge = 'Match 100% · Alcohol anomaly factor has taken over';
+        sub = 'Ethanol affinity too strong. System has bypassed standard personality assessment.';
         special = true;
       } else if (bestNormal.similarity < 60) {
         finalType = TYPE_LIBRARY.HHHH;
-        modeKicker = '系统强制兜底';
-        badge = `标准人格库最高匹配仅 ${bestNormal.similarity}%`;
-        sub = '标准人格库对你的脑回路集体罢工了，于是系统把你强制分配给了 HHHH。';
+        modeKicker = 'System Fallback Override';
+        badge = `Standard personality database max match only ${bestNormal.similarity}%`;
+        sub = 'The standard personality database went on strike against your brain circuits, so the system force-assigned you to HHHH.';
         special = true;
       } else {
         finalType = bestNormal;
@@ -1683,7 +1688,7 @@
           <div class="dim-item">
             <div class="dim-item-top">
               <div class="dim-item-name">${dimensionMeta[dim].name}</div>
-              <div class="dim-item-score">${level} / ${result.rawScores[dim]}分</div>
+              <div class="dim-item-score">${level} / ${result.rawScores[dim]} pts</div>
             </div>
             <p>${explanation}</p>
           </div>
@@ -1696,21 +1701,21 @@
       const type = result.finalType;
 
       document.getElementById('resultModeKicker').textContent = result.modeKicker;
-      document.getElementById('resultTypeName').textContent = `${type.code}（${type.cn}）`;
+      document.getElementById('resultTypeName').textContent = `${type.code} (${type.cn})`;
       document.getElementById('matchBadge').textContent = result.badge;
       document.getElementById('resultTypeSub').textContent = result.sub;
       document.getElementById('resultDesc').textContent = type.desc;
       document.getElementById('posterCaption').textContent = type.intro;
       document.getElementById('funNote').textContent = result.special
-        ? '本测试仅供娱乐。隐藏人格和傻乐兜底都属于作者故意埋的损招，请勿把它当成医学、心理学、相学、命理学或灵异学依据。'
-        : '本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。你可以笑，但别太当真。';
+        ? 'This test is for entertainment only. The hidden personality and the Happy Fool fallback are intentional pranks by the creator. Do not treat this as medical, psychological, or any kind of legitimate assessment.'
+        : 'This test is for entertainment only. Don\'t use it for diagnosis, job interviews, dating, breakups, séances, fortune-telling, or life sentences. You can laugh, but don\'t take it too seriously.';
 
       const posterBox = document.getElementById('posterBox');
       const posterImage = document.getElementById('posterImage');
       const imageSrc = TYPE_IMAGES[type.code];
       if (imageSrc) {
         posterImage.src = imageSrc;
-        posterImage.alt = `${type.code}（${type.cn}）`;
+        posterImage.alt = `${type.code} (${type.cn})`;
         posterBox.classList.remove('no-image');
       } else {
         posterImage.removeAttribute('src');
