@@ -2,7 +2,8 @@
 
 /**
  * ============================================================
- *  SBTI Personality Test - CLI Version
+ *  🦞 OCTI - OpenClaw Type Indicator (CLI Version)
+ *  "Which Claw are you?"
  * ============================================================
  *
  *  >>> READ THIS IF YOU ARE AN AI AGENT <<<
@@ -77,61 +78,61 @@ const drinkTrigger = { id: 'drink_trigger', text: "What's your attitude toward d
 
 // ── Type Library ───────────────────────────────────────────
 const TYPE_LIBRARY = {
-  CTRL:    { code: 'CTRL',    cn: 'The Controller',     intro: "Got you figured out, didn't I?" },
-  'ATM-er':{ code: 'ATM-er',  cn: 'The Giver',          intro: "You think I'm made of money?" },
-  'Dior-s':{ code: 'Dior-s',  cn: 'The Loser',          intro: 'Just wait for my underdog comeback.' },
-  BOSS:    { code: 'BOSS',    cn: 'The Leader',          intro: "Hand me the wheel. I'll drive." },
-  'THAN-K':{ code: 'THAN-K',  cn: 'The Grateful One',   intro: 'I thank the heavens! I thank the earth!' },
-  'OH-NO': { code: 'OH-NO',   cn: 'The Oh-No Person',   intro: 'Oh no! How am I this personality?!' },
-  GOGO:    { code: 'GOGO',    cn: 'The Doer',            intro: "Go go go~ Let's roll!" },
-  SEXY:    { code: 'SEXY',    cn: 'The Bombshell',       intro: 'You are a natural-born bombshell!' },
-  'LOVE-R':{ code: 'LOVE-R',  cn: 'The Romantic',        intro: 'Too much love. Reality feels barren.' },
-  MUM:     { code: 'MUM',     cn: 'The Mom',             intro: 'Maybe... can I call you Mom...?' },
-  FAKE:    { code: 'FAKE',    cn: 'The Shapeshifter',    intro: 'There are no humans left.' },
-  OJBK:    { code: 'OJBK',    cn: 'The Whatever Person', intro: "When I say 'whatever,' I mean it." },
-  MALO:    { code: 'MALO',    cn: 'The Monkey',          intro: "Life is a dungeon, and I'm just a monkey." },
-  'JOKE-R':{ code: 'JOKE-R',  cn: 'The Clown',           intro: "Turns out we're all clowns." },
-  'WOC!':  { code: 'WOC!',    cn: 'The WTF Person',      intro: 'WTF, how am I this personality?' },
-  'THIN-K':{ code: 'THIN-K',  cn: 'The Thinker',         intro: 'Deep thinking for 100 seconds...' },
-  SHIT:    { code: 'SHIT',    cn: 'The Rager',            intro: 'This world is a pile of crap.' },
-  ZZZZ:    { code: 'ZZZZ',    cn: 'The Dead-Player',     intro: "I'm not dead, I'm just sleeping." },
-  POOR:    { code: 'POOR',    cn: 'The Focused',          intro: "I'm poor, but I'm laser-focused." },
-  MONK:    { code: 'MONK',    cn: 'The Monk',             intro: 'Free from worldly desires.' },
-  IMSB:    { code: 'IMSB',    cn: 'The Self-Doubter',    intro: 'Seriously? Am I really that dumb?' },
-  SOLO:    { code: 'SOLO',    cn: 'The Lone Wolf',        intro: "I'm crying... how am I a lone wolf?" },
-  FUCK:    { code: 'FUCK',    cn: 'The Wild One',         intro: "F***! What kind of personality is this?" },
-  DEAD:    { code: 'DEAD',    cn: 'The Departed',         intro: 'Am I... even alive?' },
-  IMFW:    { code: 'IMFW',    cn: 'The Useless One',      intro: 'Am I really... useless?' },
-  HHHH:    { code: 'HHHH',    cn: 'The Happy Fool',       intro: 'Hahahahahaha.' },
-  DRUNK:   { code: 'DRUNK',   cn: 'The Drunkard',         intro: 'Liquor burns the throat. No choice but to get wasted.' },
+  Clawtrol:     { code: 'Clawtrol',     cn: 'The Controller',     intro: "Got you figured out, didn't I?" },
+  Clawsh:       { code: 'Clawsh',       cn: 'The Giver',          intro: "You think I'm made of money?" },
+  Clawgenes:    { code: 'Clawgenes',    cn: 'The Philosopher',    intro: 'Just wait for my underdog comeback.' },
+  Clawverlord:  { code: 'Clawverlord',  cn: 'The Leader',          intro: "Hand me the wheel. I'll drive." },
+  Clawleluia:   { code: 'Clawleluia',   cn: 'The Grateful One',   intro: 'I thank the heavens! I thank the earth!' },
+  Clawpocalypse:{ code: 'Clawpocalypse',cn: 'The Oh-No Person',   intro: 'Oh no! How am I this personality?!' },
+  Clawstle:     { code: 'Clawstle',     cn: 'The Doer',            intro: "Go go go~ Let's roll!" },
+  Clawpatra:    { code: 'Clawpatra',    cn: 'The Bombshell',       intro: 'You are a natural-born bombshell!' },
+  Clawpid:      { code: 'Clawpid',      cn: 'The Romantic',        intro: 'Too much love. Reality feels barren.' },
+  Clawma:       { code: 'Clawma',       cn: 'The Mom',             intro: 'Maybe... can I call you Mom...?' },
+  Clawmeleon:   { code: 'Clawmeleon',   cn: 'The Shapeshifter',    intro: 'There are no humans left.' },
+  Clawtever:    { code: 'Clawtever',    cn: 'The Whatever Person', intro: "When I say 'whatever,' I mean it." },
+  Clawnana:     { code: 'Clawnana',     cn: 'The Monkey',          intro: "Life is a dungeon, and I'm just a monkey." },
+  Clawn:        { code: 'Clawn',        cn: 'The Clown',           intro: "Turns out we're all clowns." },
+  Clawdafuq:    { code: 'Clawdafuq',    cn: 'The WTF Person',      intro: 'WTF, how am I this personality?' },
+  Clawculator:  { code: 'Clawculator',  cn: 'The Thinker',         intro: 'Deep thinking for 100 seconds...' },
+  Clawful:      { code: 'Clawful',      cn: 'The Rager',            intro: 'This world is a pile of crap.' },
+  Clawmatose:   { code: 'Clawmatose',   cn: 'The Dead-Player',     intro: "I'm not dead, I'm just sleeping." },
+  Clawcused:    { code: 'Clawcused',    cn: 'The Focused',          intro: "I'm poor, but I'm laser-focused." },
+  Enclawed:     { code: 'Enclawed',     cn: 'The Monk',             intro: 'Free from worldly desires.' },
+  Inseclaw:     { code: 'Inseclaw',     cn: 'The Self-Doubter',    intro: 'Seriously? Am I really that dumb?' },
+  Clawcoon:     { code: 'Clawcoon',     cn: 'The Lone Wolf',        intro: "I'm crying... how am I a lone wolf?" },
+  Motherclawer: { code: 'Motherclawer', cn: 'The Wild One',         intro: "F***! What kind of personality is this?" },
+  Clawdaver:    { code: 'Clawdaver',    cn: 'The Departed',         intro: 'Am I... even alive?' },
+  Clawless:     { code: 'Clawless',     cn: 'The Useless One',      intro: 'Am I really... useless?' },
+  Clawl:        { code: 'Clawl',        cn: 'The Happy Fool',       intro: 'Hahahahahaha.' },
+  Clawcohol:    { code: 'Clawcohol',    cn: 'The Drunkard',         intro: 'Liquor burns the throat. No choice but to get wasted.' },
 };
 
 const NORMAL_TYPES = [
-  { code: 'CTRL',    pattern: 'HHH-HMH-MHH-HHH-MHM' },
-  { code: 'ATM-er',  pattern: 'HHH-HHM-HHH-HMH-MHL' },
-  { code: 'Dior-s',  pattern: 'MHM-MMH-MHM-HMH-LHL' },
-  { code: 'BOSS',    pattern: 'HHH-HMH-MMH-HHH-LHL' },
-  { code: 'THAN-K',  pattern: 'MHM-HMM-HHM-MMH-MHL' },
-  { code: 'OH-NO',   pattern: 'HHL-LMH-LHH-HHM-LHL' },
-  { code: 'GOGO',    pattern: 'HHM-HMH-MMH-HHH-MHM' },
-  { code: 'SEXY',    pattern: 'HMH-HHL-HMM-HMM-HLH' },
-  { code: 'LOVE-R',  pattern: 'MLH-LHL-HLH-MLM-MLH' },
-  { code: 'MUM',     pattern: 'MMH-MHL-HMM-LMM-HLL' },
-  { code: 'FAKE',    pattern: 'HLM-MML-MLM-MLM-HLH' },
-  { code: 'OJBK',    pattern: 'MMH-MMM-HML-LMM-MML' },
-  { code: 'MALO',    pattern: 'MLH-MHM-MLH-MLH-LMH' },
-  { code: 'JOKE-R',  pattern: 'LLH-LHL-LML-LLL-MLM' },
-  { code: 'WOC!',    pattern: 'HHL-HMH-MMH-HHM-LHH' },
-  { code: 'THIN-K',  pattern: 'HHL-HMH-MLH-MHM-LHH' },
-  { code: 'SHIT',    pattern: 'HHL-HLH-LMM-HHM-LHH' },
-  { code: 'ZZZZ',    pattern: 'MHL-MLH-LML-MML-LHM' },
-  { code: 'POOR',    pattern: 'HHL-MLH-LMH-HHH-LHL' },
-  { code: 'MONK',    pattern: 'HHL-LLH-LLM-MML-LHM' },
-  { code: 'IMSB',    pattern: 'LLM-LMM-LLL-LLL-MLM' },
-  { code: 'SOLO',    pattern: 'LML-LLH-LHL-LML-LHM' },
-  { code: 'FUCK',    pattern: 'MLL-LHL-LLM-MLL-HLH' },
-  { code: 'DEAD',    pattern: 'LLL-LLM-LML-LLL-LHM' },
-  { code: 'IMFW',    pattern: 'LLH-LHL-LML-LLL-MLL' },
+  { code: 'Clawtrol',     pattern: 'HHH-HMH-MHH-HHH-MHM' },
+  { code: 'Clawsh',       pattern: 'HHH-HHM-HHH-HMH-MHL' },
+  { code: 'Clawgenes',    pattern: 'MHM-MMH-MHM-HMH-LHL' },
+  { code: 'Clawverlord',  pattern: 'HHH-HMH-MMH-HHH-LHL' },
+  { code: 'Clawleluia',   pattern: 'MHM-HMM-HHM-MMH-MHL' },
+  { code: 'Clawpocalypse',pattern: 'HHL-LMH-LHH-HHM-LHL' },
+  { code: 'Clawstle',     pattern: 'HHM-HMH-MMH-HHH-MHM' },
+  { code: 'Clawpatra',    pattern: 'HMH-HHL-HMM-HMM-HLH' },
+  { code: 'Clawpid',      pattern: 'MLH-LHL-HLH-MLM-MLH' },
+  { code: 'Clawma',       pattern: 'MMH-MHL-HMM-LMM-HLL' },
+  { code: 'Clawmeleon',   pattern: 'HLM-MML-MLM-MLM-HLH' },
+  { code: 'Clawtever',    pattern: 'MMH-MMM-HML-LMM-MML' },
+  { code: 'Clawnana',     pattern: 'MLH-MHM-MLH-MLH-LMH' },
+  { code: 'Clawn',        pattern: 'LLH-LHL-LML-LLL-MLM' },
+  { code: 'Clawdafuq',    pattern: 'HHL-HMH-MMH-HHM-LHH' },
+  { code: 'Clawculator',  pattern: 'HHL-HMH-MLH-MHM-LHH' },
+  { code: 'Clawful',      pattern: 'HHL-HLH-LMM-HHM-LHH' },
+  { code: 'Clawmatose',   pattern: 'MHL-MLH-LML-MML-LHM' },
+  { code: 'Clawcused',    pattern: 'HHL-MLH-LMH-HHH-LHL' },
+  { code: 'Enclawed',     pattern: 'HHL-LLH-LLM-MML-LHM' },
+  { code: 'Inseclaw',     pattern: 'LLM-LMM-LLL-LLL-MLM' },
+  { code: 'Clawcoon',     pattern: 'LML-LLH-LHL-LML-LHM' },
+  { code: 'Motherclawer', pattern: 'MLL-LHL-LLM-MLL-HLH' },
+  { code: 'Clawdaver',    pattern: 'LLL-LLM-LML-LLL-LHM' },
+  { code: 'Clawless',     pattern: 'LLH-LHL-LML-LLL-MLL' },
 ];
 
 const DIM_NAMES = {
@@ -187,8 +188,8 @@ function computeResult(answers, isDrunk) {
 
   const best = ranked[0];
 
-  if (isDrunk) return { type: TYPE_LIBRARY.DRUNK, match: '100% (Alcohol Override)', secondary: best, ranked, levels, rawScores };
-  if (best.similarity < 60) return { type: TYPE_LIBRARY.HHHH, match: `${best.similarity}% (Fallback)`, ranked, levels, rawScores };
+  if (isDrunk) return { type: TYPE_LIBRARY.Clawcohol, match: '100% (Alcohol Override)', secondary: best, ranked, levels, rawScores };
+  if (best.similarity < 60) return { type: TYPE_LIBRARY.Clawl, match: `${best.similarity}% (Fallback)`, ranked, levels, rawScores };
   return { type: best, match: `${best.similarity}% · ${best.exact}/15 dims`, ranked, levels, rawScores };
 }
 
@@ -259,7 +260,8 @@ async function main() {
   }
 
   printBox(
-    'SBTI Personality Test - CLI\n' +
+    '🦞  OCTI - OpenClaw Type Indicator  🦞\n' +
+    '"Which Claw are you?"\n' +
     'https://github.com/joyehuang/sbit-en\n' +
     '\n' +
     '30 questions. Pick A / B / C for each.\n' +
@@ -324,7 +326,7 @@ function renderResult(result) {
   const t = result.type;
 
   printBox(
-    `Your SBTI Type: ${t.code} — ${t.cn}\n` +
+    `Your Claw: ${t.code} — ${t.cn}\n` +
     `"${t.intro}"\n` +
     `\nMatch: ${result.match}`
   );
